@@ -1,0 +1,36 @@
+$c-brand: #ff6464;
+$c-light-accent: #4fb5e1;
+$c-dark-accent: #ffb264;
+$c-light-shades: #fafaf8;
+$c-dark-shades: #091421;
+$c-background: #0a192f;
+$c-white: #fff;
+$c-black: #000;
+
+$padding-lg: 56px;
+$padding-sm: $padding-lg / 2;
+
+$grid-pt: 8px;
+
+$space-xs: 1 * $grid-pt;
+$space-sm: 2 * $grid-pt;
+$space-md: 3 * $grid-pt;
+$space-lg: 4 * $grid-pt;
+$space-xl: 5 * $grid-pt;
+$space-xxl: 6 * $grid-pt;
+$space-xxxl: 7 * $grid-pt;
+
+$site-width: 140 * $grid-pt;
+$bp-tablet: 768px;
+
+$transition: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

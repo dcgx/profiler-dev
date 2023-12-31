@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+html,
+body {
+  background-color: #172a45;
+
+  .no-scroll {
+    overflow: hidden;
+  }
+}
+
+html {
+  font-family: 'Source Code Pro', -apple-system, Arial, sans-serif;
+  font-size: 16px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+#__layout,
+#__nuxt {
+  min-height: 100%;
+}
+
+// https://vuejs.org/v2/guide/transitions.html
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 500ms;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}

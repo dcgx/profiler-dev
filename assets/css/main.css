@@ -1,6 +1,15 @@
+@import "./animations.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
+.main-container {
+  width: 100%;
+  max-width: 1200px;
+  counter-reset: section;
+}
+.main-container section {
+  margin: 0 auto;
+  padding: 100px 0;
 }
