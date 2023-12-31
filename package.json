@@ -10,6 +10,8 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/apollo": "^5.0.0-alpha.11",
+    "@types/lodash": "^4.14.202",
     "@types/node": "^18",
     "autoprefixer": "^10.4.14",
     "nuxt": "^3.5.2",
@@ -19,9 +21,11 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
+    "isomorphic-unfetch": "^4.0.2",
     "lodash": "^4.17.21",
     "mongoose": "^8.0.3",
-    "pinia": "^2.1.7"
+    "pinia": "^2.1.7",
+    "string-similarity": "^4.0.4"
   },
   "overrides": {
     "vue": "latest"

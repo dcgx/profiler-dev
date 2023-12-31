@@ -1,6 +1,12 @@
-<script setup>
+<script setup lang="ts">
+import { useUserStore } from "@/stores/user";
+import { useUserBuilder } from "@/composables/useUserBuilder";
 import PortfolioNotFound from "@/components/Portfolio/PortfolioNotFound.vue";
 import Portfolio from "@/components/Portfolio/Portfolio.vue";
+
+const userStore = useUserStore();
+const { buildUser } = useUserBuilder();
+const { params } = useRoute();
 
 const loading = ref(false);
 const loaderText = ref("Doing the magic 🪄💫 ...");
@@ -11,19 +17,25 @@ const user = {
   email: "",
 };
 
-// onMounted(() => {
-//   setTimeout(() => {
-//     loaderText.value =
-//       "I recommend you have the same username on Github, Hashnode and Dev.to 🪄💫 ...";
-//   }, 1500);
-//   setTimeout(() => {
-//     loaderText.value =
-//       "I am fetching your data from Github, Hashnode and Dev.to 🪄💫 ...";
-//   }, 3000);
-//   setTimeout(() => {
-//     loading.value = false;
-//   }, 4500);
-// });
+onMounted(async () => {
+  setTimeout(() => {
+    loaderText.value =
+      "I recommend you have the same username on Github, Hashnode and Dev.to 🪄💫 ...";
+  }, 1500);
+  try {
+    const user = await buildUser(params);
+    userStore.setUser(user);
+  } catch (error) {
+    console.log(error);
+  }
+  setTimeout(() => {
+    loaderText.value =
+      "I am fetching your data from Github, Hashnode and Dev.to 🪄💫 ...";
+  }, 3000);
+  setTimeout(() => {
+    loading.value = false;
+  }, 4500);
+});
 </script>
 
 <template>
