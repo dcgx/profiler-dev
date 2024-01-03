@@ -6,6 +6,12 @@ export const useUserStore = defineStore('user', {
     }),
 
     actions: {
+        getUserByUsername(username: string) {
+            return $fetch(`api/user/${username}`, {
+                method: 'GET',
+            })
+        },
+
         setUser(user: any) {
             sessionStorage.setItem('user', JSON.stringify(user))
             this.user = user

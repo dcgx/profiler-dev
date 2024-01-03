@@ -10,10 +10,35 @@ type FullFillUserParams = {
     devto: object
 }
 
-type User = {
+type BaseUser = {
     github: GithubUser;
     hashnode?: object | null | undefined;
     devto?: object | null | undefined;
+}
+
+type User = {
+    primaryColor?: string | null;
+    avatar?: string;
+    favicon?: string | null;
+    name?: string;
+    readme?: string;
+    email?: string | null;
+    username?: string;
+    ga?: string | null;
+    repos?: object[];
+    shortBio?: string;
+    largeBio?: string;
+    hasGithub?: boolean;
+    hasRepos?: boolean;
+    hasHashnode?: boolean;
+    hasDevto?: boolean;
+    hasReadme?: boolean;
+    hasPosts?: boolean;
+    showBlog?: boolean;
+    showAbout?: boolean;
+    showRepos?: boolean;
+    links?: object | null;
+    posts?: object[];
 }
 
 type GithubUser = {

@@ -7,7 +7,7 @@ export const useUserBuilder = () => {
     const { getProfilerDevUser } = useProfilerDevUser();
     const { getGithubUser, getUserReadme, getRepos, getIsGithubRateLimited } = useGithub();
 
-    const applyValidations = (user: User): User => {
+    const applyValidations = (user: BaseUser): BaseUser => {
         const githubName = get(user, 'github.name');
         const devtoName = get(user, 'devto.name');
         const hashnodeName = get(user, 'hashnode.name');
@@ -27,7 +27,7 @@ export const useUserBuilder = () => {
     };
 
     const fullfillUser = async ({ username, github, hashnode, devto }: FullFillUserParams) => {
-        let user: User = {
+        let user: BaseUser = {
             github,
             hashnode: {},
             devto: {},
@@ -55,7 +55,7 @@ export const useUserBuilder = () => {
             user.github = githubUser
             user.github.limited = githubLimited;
             user.github.readme = githubReadmeData;
-            user.github.repos = githubReposData;
+            user.github.repos = githubReposData
         }
 
         user = applyValidations(user);
@@ -73,12 +73,13 @@ export const useUserBuilder = () => {
     const buildUser = async (params: BuildUserParams) => {
         let user = {};
         const { username, isPreview = false } = params;
-
+        console.log(username,'username')
         if (isPreview) {
-            user = getProfilerDevUser(username, {}, [], true);
+            user = await getProfilerDevUser(username, {}, [], true);
             return user;
         }
         const githubUser = await getGithubUser(username);
+        console.log(githubUser,'githubUser')
         // TODO: getDevtoUser
         // TODO: getHashnodeUser
 
@@ -88,6 +89,7 @@ export const useUserBuilder = () => {
             hashnode: {},
             devto: {},
         });
+        console.log(user,'user user builder')
         return user;
     }
 

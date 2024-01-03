@@ -1,5 +1,5 @@
 import { orderBy } from "lodash";
-import { GITHUB_API_URL, GITHUB_USER_URL } from "~/lib/constants";
+import { GITHUB_API_URL, GITHUB_USER_URL } from "@/lib/constants";
 import { getGithubReadmeURL } from "~/utils/user-mapping";
 
 export const useGithub = () => {
@@ -8,7 +8,7 @@ export const useGithub = () => {
         return await response.json();
     }
 
-    const getRepos = async (username: string) => {
+    const getRepos = async (username: string): Promise<object[]> => {
         try {
             const response = await fetch(`${GITHUB_USER_URL}${username}/repos?per_page=100`);
             if (response.status === 404 || response.status === 403) {

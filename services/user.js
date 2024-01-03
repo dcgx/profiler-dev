@@ -1,4 +1,4 @@
-import fetchAPI from '@lib/fetch-api';
+import fetchAPI from '@/lib/fetch-api';
 import { IS_GENERATOR } from '@lib/constants';
 
 const headers = {

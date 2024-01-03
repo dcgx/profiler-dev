@@ -7,6 +7,7 @@ import Portfolio from "@/components/Portfolio/Portfolio.vue";
 const userStore = useUserStore();
 const { buildUser } = useUserBuilder();
 const { params } = useRoute();
+const { username, isPreview } = params;
 
 const loading = ref(false);
 const loaderText = ref("Doing the magic 🪄💫 ...");
@@ -23,7 +24,10 @@ onMounted(async () => {
       "I recommend you have the same username on Github, Hashnode and Dev.to 🪄💫 ...";
   }, 1500);
   try {
-    const user = await buildUser(params);
+    const user = await buildUser({
+      username: username.toString(),
+      isPreview: !!isPreview,
+    });
     userStore.setUser(user);
   } catch (error) {
     console.log(error);
